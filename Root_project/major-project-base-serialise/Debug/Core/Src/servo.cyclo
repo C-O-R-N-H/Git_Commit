@@ -1,0 +1,2 @@
+servo.c:5:5:set_yaw	1
+servo.c:9:5:set_pitch	1
