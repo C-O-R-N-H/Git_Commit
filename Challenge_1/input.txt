@@ -1,0 +1,1 @@
+adc module for tilt pan and accelerometer
