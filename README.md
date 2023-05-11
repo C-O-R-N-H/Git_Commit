@@ -19,11 +19,11 @@ Roles:
 ## PIN-OUT:
 ### Master Board:
 USB -> USART1 <br />
-PA15 -> PWM1/n
-PB6 -> SCL/n
-PB7 -> SDA/n
-PA1-> PWM2/n
-PA8 -> LASPWM/n
+PA15 -> PWM1<br />
+PB6 -> SCL<br />
+PB7 -> SDA<br />
+PA1-> PWM2<br />
+PA8 -> LASPWM<br />
 
 ### ADC Board
 USB -> USART1/n
