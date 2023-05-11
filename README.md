@@ -18,7 +18,7 @@ Roles:
 
 ## PIN-OUT:
 ### Master Board:
-USB -> USART1/n
+USB -> USART1 <br />
 PA15 -> PWM1/n
 PB6 -> SCL/n
 PB7 -> SDA/n
