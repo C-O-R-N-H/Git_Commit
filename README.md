@@ -20,9 +20,9 @@ Roles:
 ### Master Board:
 USB -> USART1 <br />
 PA15 -> PWM1<br />
-PB6 -> SCL<br />
-PB7 -> SDA<br />
 PA1-> PWM2<br />
+PB7 -> SDA<br />
+PB6 -> SCL<br />
 PA8 -> LASPWM<br />
 
 ### ADC Board
