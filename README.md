@@ -16,6 +16,24 @@ Roles:
 ## Modules
 
 
+
+## Communication Protocalls:
+
+### Format
+Sentinels -> Mode -> Data -> End of Sequence <br />
+### Modes
+Sentinels -> `AA55` <br />
+End of Sequence -> `!` <br />
+Mode = `1` -> Change state <br />
+- Data -> 2 bytes (number for state)
+Mode = `2` -> Challenge completed <br />
+- Data ->
+Mode = `3` -> Notes being played <br />
+- Data -> 6 bytes (1 for each note)
+Mode = `4` -> Board to board TX <br />
+- Data -> 
+
+
 ## PIN-OUT:
 ### Master Board:
 USB -> USART1 <br />
