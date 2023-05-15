@@ -26,12 +26,16 @@ Sentinels -> `AA55` <br />
 End of Sequence -> `!` <br />
 Mode = `1` -> Change state <br />
 - Data -> 2 bytes (number for state) <br />
+
 Mode = `2` -> Challenge completed <br />
 - Data -> <br />
+
 Mode = `3` -> Notes being played <br />
 - Data -> 6 bytes (1 for each note) <br />
+
 Mode = `4` -> Board to board TX <br />
 - Data -> <br />
+
 
 
 ## PIN-OUT:
