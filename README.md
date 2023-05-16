@@ -10,14 +10,17 @@ Group Members:
 - Ruchir Bais 
 
 Roles:
-
-
+- ADC (Challenge 1) Ruchir
+- Lidar (Challenge 2) Hiroshi
+- TSC (Challenge 3) Quinn
+- Combination Lock (Challenge 4) Richard
+- GUI Will
 
 ## Modules
 
 
 
-## Communication Protocalls:
+## Communication Protocols:
 
 ### Format
 Sentinels -> Mode -> Data -> End of Sequence <br />
