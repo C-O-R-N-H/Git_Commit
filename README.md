@@ -39,6 +39,13 @@ Mode = `3` -> Notes being played <br />
 Mode = `4` -> Board to board TX <br />
 - Data -> <br />
 
+Mode = `5` -> LIDAR data <br />
+- Data -> 4 bytes for distance<br />
+
+Mode = `6` -> LIDAR target <br />
+- Data -> 4 bytes for distance<br />
+
+
 
 
 ## PIN-OUT:
