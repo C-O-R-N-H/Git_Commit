@@ -37,7 +37,7 @@ Mode = `3` -> Notes being played <br />
 - Data -> 6 bytes (1 for each note) <br />
 
 Mode = `4` -> Board to board TX <br />
-- Data -> <br />
+- Data -> <br /> 4 bytes 
 
 Mode = `5` -> LIDAR data <br />
 - Data -> 4 bytes for distance<br />
