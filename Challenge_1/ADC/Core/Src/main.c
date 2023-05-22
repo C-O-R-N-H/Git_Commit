@@ -21,7 +21,10 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "serial.h"
+#include "data_handler.h"
+#include <stdio.h>
+#include <stdlib.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -82,7 +85,8 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-
+  uint8_t string[100];
+  SerialInitialise(BAUD_115200, &USART1_PORT, 0x00);
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -105,7 +109,6 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    /* USER CODE END WHILE */
 	  HAL_ADC_Start_DMA(&hadc1, (uint32_t*)adcResults, adcChannels);
 	  while (adcConvComplete == 0)
 	  {
@@ -117,8 +120,11 @@ int main(void)
 	  *led_register = (0b00000001<<pitch)-1;
 
 	  yaw = adcResults[1]/(4000/12);
-
+	  sprintf(string,"%hu,%hu\r\n",pitch,yaw);
+	  SerialOutputString(string, &USART1_PORT);
 	  HAL_Delay(100);
+    /* USER CODE END WHILE */
+
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
