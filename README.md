@@ -45,6 +45,9 @@ Mode = `5` -> LIDAR data <br />
 Mode = `6` -> LIDAR target <br />
 - Data -> 4 bytes for distance<br />
 
+Mode = `7` -> GYRO data <br />
+- Data -> <br />
+
 
 
 
