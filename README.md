@@ -17,6 +17,23 @@ Roles:
 - GUI Will
 
 ## Modules
+- [ADC](#adc)
+- [LIDAR](#lidar)
+- [TSC](#tsc)
+- [Combination Lock](#combination-lock)
+- [GUI](#gui)
+
+### ADC
+
+### LIDAR
+![Untitled Diagram drawio (1)](https://github.com/C-O-R-N-H/Git_Commit/assets/126120093/af818efb-bfed-4f13-9bfa-ba59a0c550f0)
+
+
+### TSC
+
+### Combination Lock
+
+### GUI
 
 
 
