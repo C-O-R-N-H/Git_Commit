@@ -26,7 +26,8 @@ Roles:
 ### ADC
 
 ### LIDAR
-![Untitled Diagram drawio (1)](https://github.com/C-O-R-N-H/Git_Commit/assets/126120093/af818efb-bfed-4f13-9bfa-ba59a0c550f0)
+![Tron Major Flow Chart](https://github.com/C-O-R-N-H/Git_Commit/assets/126120093/ed56335c-d149-4d5c-8c2c-43f4ae2140a2)
+
 
 
 ### TSC
