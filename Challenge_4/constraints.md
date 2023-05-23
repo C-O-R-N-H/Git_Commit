@@ -21,3 +21,33 @@ for one lock complete. The process must be completed three times to finish the c
 The secondary board will read the accelerometer value, translate that into pitch and roll values, and calculate the velocity in both directions. It will send that value to the GUI which will send it to the master board.
 If the velocity is held at (0, 0) for 2 seconds, the main board will record the orientation of the PTU. If the orientation is correct, the main board sends the completion signal for that combination.
 Once all three locks are done, the challenge completion code is sent to the GUI.
+
+High level flow chart
+
+```mermaid
+graph TD
+Start((Start)) --> IsBoardStill{Is the board horizontal?}
+
+IsBoardStill -- Yes --> IsBoardStill
+
+IsBoardStill -- No --> MovePTU[Move PTU]
+MovePTU --> IsBoardStill
+
+IsBoardStill -- Board is held horizontal for 2.5 seconds --> IsPosCorrect{Is the position correct?}
+IsPosCorrect -- No --> ResetLock[Reset the lock]
+ResetLock --> IsBoardStill
+
+IsPosCorrect -- Yes --> IsLastPos{Was that the last position?}
+IsLastPos -- No --> NextPos[Move on to the next position]
+NextPos --> IsBoardStill
+
+IsLastPos -- Yes --> ChallengeComplete((Challenge complete))
+```
+
+
+
+
+
+
+
+
