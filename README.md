@@ -34,6 +34,28 @@ Roles:
 
 ### Combination Lock
 
+#### High Level Flow Chart
+```mermaid
+graph TD
+Start((Start)) --> IsBoardStill{Is the board horizontal?}
+
+IsBoardStill -- Yes --> IsBoardStill
+
+IsBoardStill -- No --> MovePTU[Move PTU]
+MovePTU --> IsBoardStill
+
+IsBoardStill -- Board is held horizontal for 2.5 seconds --> IsPosCorrect{Is the position correct?}
+IsPosCorrect -- No --> ResetLock[Reset the lock]
+ResetLock --> IsBoardStill
+
+IsPosCorrect -- Yes --> IsLastPos{Was that the last position?}
+IsLastPos -- No --> NextPos[Move on to the next position]
+NextPos --> IsBoardStill
+
+IsLastPos -- Yes --> ChallengeComplete((Challenge complete))
+```
+
+
 ### GUI
 
 
