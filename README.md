@@ -13,7 +13,7 @@ Roles:
 - Hiroshi: LIDAR (Challenge 1)
 - Quinn: Touch Sensing Controller (Challenge 2)
 - Richard: Combination Lock (Challenge 3)
-- Ruchir: ADC (Encryption+Pressure Plate)
+- Ruchir: ADC (Encryption + Pressure Plate)
 - Will: GUI and Integration
 
 ## Modules
@@ -143,10 +143,6 @@ The STM board uses 2 ADC Channels to stabilize the PTU motion and encryption. Th
 #### Usage
 The login username and password undergo constant encryption with a dynamic encryption key that continually changes. This encryption process is visually represented by a PTU (Pan-Tilt Unit) using a periodic pitch and yaw function. The PTU's movement speed reflects the rate of change of the encryption key. The 2 trimpots act as dial locks, independently affecting the motion of each axis. As the trimpots approach their desired configuration, the PTU's motion gradually diminishes, reducing both the amplitude and rate of change of the encryption key. Eventually, when trimpots align with the required position, the PTU comes to a complete stop, and the encryption key becomes all zeros. This signifies that the encryption is disabled, allowing the user to enter the username and password displayed on the screen, thereby enabling a successful login.
 
-#### Testing Procedures
-
-
-
 
 ### Pressure Plate (ADC) &#x00A0; :bomb:
 #### Summary
@@ -161,6 +157,22 @@ The load cell is bolted on to 2 wooden plates to create a pressure plate, and it
 
 #### Circuit Diagram
 ![WhatsApp Image 2023-05-24 at 6 24 19 PM](https://github.com/C-O-R-N-H/Git_Commit/assets/126120093/127497cd-c027-46ed-a12f-ecfa477d7658)
+
+#### ADC Testing
+Initial testing – Each ADC channel was connected to the output of a trimpot. Dividing each ADC channel into 8 levels and mapping them to the LEDs allowed us to verify each PIN and channel. 
+
+Once this basic verification is done, multiple ADC values measured by the board can be output via serial communication using the sprintf function to be inspected. Along with this, the set_led function can allow uniquely lighting the LEDS to visually represent the values. Both were used to verify the functionality of the Encryption ADC module, which required 24 levels from 2 separate channels. 
+
+For the Pressure Plate ADC module, the sensitivity of the plate had to be calibrated by adding or reducing the variable resistor value. The desired weight was put on the scale and the resistance was calibrated manually. When no weight is detected, one LED lights up, and when time has passed with the load missing from the plate, all the LEDs light up. This helps us verify if the board is detecting the removal of the load and not raising a flag when the load is replaced within the time limit. 
+
+For troubleshooting and setting ADC circuits, a multimeter is highly recommended, as we need to be able to verify the specific voltage values at different points in the circuit, and not just HIGH or LOW.
+
+Common errors:
+
+-	ADC level is flickering between two consecutive levels: Noise and other inconsistencies may cause an ADC value on the edge of a defined level to flicker to the adjacent level. Implementing a rolling average will reduce such errors. Selecting the resolution of the levels also will impact this. Too many levels will increase the chances of the user setting the ADC near another level, and the narrow ranges will allow the noise to impact the levels more.
+-	ADC values are disordered/wrong: Always check which ADC has called the ConvCpltCallBack function and has a new reading available. Understand the voltage input range of the ADC channel and transform your circuit’s output voltage accordingly. Use a multimeter to check wiring and perform general troubleshooting.
+
+
 
 ### GUI &#x00A0; :desktop_computer:
 #### Summary
