@@ -1,9 +1,0 @@
-core_cm4.h:1688:22:__NVIC_EnableIRQ	2
-core_cm4.h:1816:22:__NVIC_SetPriority	2
-serial.c:60:6:SerialInitialise	7
-serial.c:118:6:enable_interrupts_RX	1
-serial.c:132:6:SerialOutputChar	2
-serial.c:141:6:SerialOutputString	3
-serial.c:156:9:SerialReceiveChar	5
-serial.c:179:6:SerialOutputBuffer	2
-serial.c:197:6:empty_buffer	2

@@ -1,5 +1,0 @@
-core_cm4.h:1688:22:__NVIC_EnableIRQ	2
-core_cm4.h:1816:22:__NVIC_SetPriority	2
-board.c:6:6:enable_clocks	1
-board.c:12:6:initialise_board	1
-board.c:18:6:enable_interrupts_button	1

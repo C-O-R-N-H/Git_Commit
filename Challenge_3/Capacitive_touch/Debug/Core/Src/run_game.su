@@ -1,4 +1,0 @@
-../Core/Src/run_game.c:50:6:enter_challenge_3	8	static
-../Core/Src/run_game.c:102:6:handle_error	8	static
-../Core/Src/run_game.c:110:6:enter_waiting	8	static
-../Core/Src/run_game.c:119:6:get_output_channel	40	static
