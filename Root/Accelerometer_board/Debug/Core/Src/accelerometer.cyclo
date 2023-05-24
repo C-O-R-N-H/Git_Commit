@@ -1,0 +1,6 @@
+accelerometer.c:15:6:stm_accel_init	1
+accelerometer.c:28:6:find_zero_errors	2
+accelerometer.c:50:6:read_stm_accel_data	2
+accelerometer.c:91:6:get_orientation	1
+accelerometer.c:103:6:get_velocity	1
+accelerometer.c:110:8:calculate_velocity	11
