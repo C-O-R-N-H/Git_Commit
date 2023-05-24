@@ -59,7 +59,7 @@ Once all the conditions are successfully satisfied and fully met (i.e., the butt
 ### LOCK 2 &#x2013; Touch Sensing Controller (TSC) &#x00A0; :musical_keyboard:
 
 #### User Instructions
-
+![tsc_crkt (1)](https://github.com/C-O-R-N-H/Git_Commit/assets/126728164/235b70b4-df86-4cac-9841-cbe9acc46247)
 #### Testing Procedures
 
 ### LOCK 3 &#x2013; Combination Lock &#x00A0; :lock:
