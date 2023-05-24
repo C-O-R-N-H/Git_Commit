@@ -136,7 +136,7 @@ Mode = `6` -> LIDAR target <br />
 Mode = `7` -> GYRO data <br />
 - Data -> 12 bytes (4 for each direction)<br />
 
-### Integration :poop:
+### Integration &#x00A0; :poop:
 
 #### User Instructions
 
