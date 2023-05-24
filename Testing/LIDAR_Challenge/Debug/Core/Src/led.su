@@ -1,0 +1,6 @@
+../Core/Src/led.c:7:6:set_led	24	static
+../Core/Src/led.c:14:6:turn_on_led	24	static
+../Core/Src/led.c:21:6:turn_off_led	24	static
+../Core/Src/led.c:28:6:chase_led	16	static
+../Core/Src/led.c:35:6:completion_led	24	static
+../Core/Src/led.c:49:6:failed_led	24	static

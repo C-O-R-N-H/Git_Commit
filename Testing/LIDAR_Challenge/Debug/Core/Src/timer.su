@@ -1,0 +1,6 @@
+../Drivers/CMSIS/Include/core_cm4.h:1688:22:__NVIC_EnableIRQ	16	static
+../Drivers/CMSIS/Include/core_cm4.h:1816:22:__NVIC_SetPriority	16	static
+../Core/Src/timer.c:34:6:enable_timer_interrupt	16	static,ignoring_inline_asm
+../Core/Src/timer.c:52:6:TimerInitialise	16	static
+../Core/Src/timer.c:71:6:check_condition	16	static
+../Core/Src/timer.c:112:6:TIM3_IRQHandler	8	static

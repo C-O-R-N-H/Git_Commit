@@ -1,0 +1,4 @@
+../Core/Src/filter.c:6:6:window_init	16	static
+../Core/Src/filter.c:14:10:moving_average	16	static
+../Core/Src/filter.c:21:6:update_window	16	static
+../Core/Src/filter.c:33:10:mean	24	static
