@@ -1,0 +1,2 @@
+../Core/Src/data_handler.c:7:6:state_handler	24	static
+../Core/Src/data_handler.c:20:6:check_state	16	static
