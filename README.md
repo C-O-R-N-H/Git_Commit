@@ -189,18 +189,18 @@ PA2 -> ADC1 (3)<br />
 
 ### Touch Board
 USB -> USART1<br />
-PA1 -> Group 1 Sample<br />
 PA2 -> Group 1 Channel<br />
-PB0 -> Group 3 Sample<br />
-PB1 -> Group 3 Channel<br />
-PB11 -> Group 6 Channel<br />
-PB12 -> Group 6 Sample<br />
+PA1 -> Group 1 Sample<br />
 PA4 -> Group 2 Channel<br />
 PA5 -> Group 2 Sample<br />
+PB1 -> Group 3 Channel<br />
+PB0 -> Group 3 Sample<br />
 PA9 -> Group 4 Channel<br />
 PA10 -> Group 4 Sample<br />
-PB4 -> Group 5 Sample<br />
 PB6 -> Group 5 Channel<br />
+PB4 -> Group 5 Sample<br />
+PB11 -> Group 6 Channel<br />
+PB12 -> Group 6 Sample<br />
 
 ### Controller Board
 USB -> USART1<br />
