@@ -115,6 +115,7 @@ PA8 -> LASPWM<br />
 USB -> USART1<br />
 PA0 -> ADC1 (1)<br />
 PA1 -> ADC1 (2)<br />
+PA2 -> ADC1 (3)<br />
 
 ### Touch Board
 USB -> USART1<br />
