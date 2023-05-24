@@ -1,0 +1,11 @@
+main.c:81:6:USART1_IRQHandler	5
+main.c:130:6:enter_pressure	1
+main.c:138:6:enter_login	4
+main.c:167:6:enter_waiting	1
+main.c:181:5:main	1
+main.c:235:6:SystemClock_Config	4
+main.c:281:13:MX_ADC1_Init	5
+main.c:356:13:MX_DMA_Init	1
+main.c:374:13:MX_GPIO_Init	1
+main.c:440:6:HAL_ADC_ConvCpltCallback	1
+main.c:453:6:Error_Handler	1
