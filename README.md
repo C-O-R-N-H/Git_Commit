@@ -61,7 +61,7 @@ Once the position of the PTU matches the desired position, the blue and orange L
 #### Valid input
 The only input to the challenge is the orientation of the controller &#x2013; specifically, the pitch and roll. The pitch and roll are translated into the desired velocity of the PTU in both the horizontal and vertical axes, which are sent through the GUI to the master board. The values of pitch and roll are both valid in the range -72.1&#x00B0; to 72.1&#x00B0;. If either of the pitch or roll exit the valid range, the new value is ignored and the controller uses the last valid orientation to calculate the PTU velocity.
 
-#### Testing
+#### Testing Procedures
 All data validation of the controller is handled on the secondary board according to the valid inputs mentioned in the above section. Thus the velocity data that is sent to the master board is always correct. This is tested by turning the controller upside down &#x2013; the PTU continues turning at the last valid velocity before the controller was inverted. When the controller is returned to its upright position and the orientation data is valid again, the PTU resumes moving according to this orientation.
 
 Testing was also performed to ensure that the accelerometer data was sufficiently stable by shaking the controller and tilting it rapidly in different directions. Despite these agitations, the velocity data is always robust, and this is corroborated by the smooth motion of the PTU. Furthermore, the effectiveness of our sliding window mean filter was verified by noting that the motion of the PTU became significantly smoother when the filter was applied.
