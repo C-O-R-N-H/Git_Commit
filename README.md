@@ -13,8 +13,8 @@ Roles:
 - Hiroshi: LIDAR (Challenge 1)
 - Quinn: Touch Sensing Controller (Challenge 2)
 - Richard: Combination Lock (Challenge 3)
-- Ruchir: ADC (Encryption)
-- Will: GUI
+- Ruchir: ADC (Encryption+Pressure Plate)
+- Will: GUI and Integration
 
 ## Modules
 - [LOCK 1 LIDAR](#lock-1--lidar--see_no_evil)
