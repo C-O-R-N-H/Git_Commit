@@ -37,7 +37,7 @@ A high level overview of this challenge is illustrated below.
 
 ![Tron Major Flow Chart](https://github.com/C-O-R-N-H/Git_Commit/assets/126120093/ed56335c-d149-4d5c-8c2c-43f4ae2140a2)
 #### Usage
-The system can be initiated by pressing the pushbutton on the STM32F3 discovery board, which functions as the "deactivation" mechanism. Once the button is activated, the user must position themselves within the designated distance of the lidar to "cut the wire." In order to successfully deactivate the system, the user must maintain button pressure for a minimum of 3 seconds while within the lidar's range. Upon meeting these conditions, an LED interface will appear, with the LEDs sequentially iterating through one by one. At this point, the challenge is considered complete.
+The system can be initiated by pressing the pushbutton on the STM32F3 discovery board, which functions as the "deactivation" mechanism. The user should position themselves in the designated distance before pressing the button and should stay in the position for at lesat 3 seconds to 'cut the wire'. Upon meeting these conditions, an LED interface will appear, with the LEDs sequentially iterating through one by one. At this point, the challenge is considered complete.
 
 
 
@@ -45,7 +45,7 @@ To achieve this functionality, the code incorporates a button interrupt in `butt
 
 
 #### Testing Procedures
-Testing was performed to ensure that the lidar distance being read is accurate and able to be used without any disturbances. As the PTU in use uses Pulse Width Modulation (PWM) for the lidar, arduino serial plotter was used to plot the lidar readings generated from the PWM. This generated a graph that was able to identify that the data being read was noisy and cannot be used without any adjustments. In order to combat this, a moving average was implemented with a window size of 100 as demonstrated in `filter.c`. The readings were then plotted again in arduino serial plotter and it was evident that the moving average had made an impact on the data as it was now able to be used.
+Testing was performed to ensure that the lidar distance being read is accurate and able to be used without any disturbances. As the PTU in use uses Pulse Width Modulation (PWM) for the lidar, arduino serial plotter was used to plot the lidar readings generated from the PWM. This generated a graph that was able to identify that the data being read was noisy and cannot be used without any adjustments. In order to combat this, a moving average was implemented with a window size of 100 as demonstrated in `filter.c`. The readings were then plotted again in arduino serial plotter and it was evident that the moving average had made an impact on the data as it was now able to be used.  Furthermore, ensure that the lidar readings are changing and not staying the same. Check FAQs [1] if this occurs.
 Note: PUTTY or any serial reading app can be used instead of arduino to monitor the noise. 
 
 The code implementation is designed to handle both PWM and I2C readings by evaluating the absolute difference between the lidar readings and the target distance. This flexibility is crucial because PTUs typically operate with either PWM or I2C as their preferred method for obtaining lidar values. By considering both PWM and I2C readings, the code ensures that any PTU can be used regardless of the method it employs. The code checks if the absolute difference between the PWM reading and the target distance, as well as the absolute difference between the I2C reading and the target distance, falls within the specified threshold. This adaptable approach accommodates different PTUs and their varying lidar reading mechanisms. The `check_condition` function in the `timer.c` source file effectively demonstrates this versatility.
@@ -286,5 +286,5 @@ USB -> USART1<br />
 ## FAQS
 
 #### Q: The Lidar value on the GUI doesn't seem to be changing why is that?
-#### A: Ensure that the wires are all plugged in correctly as demonstrated by the pin-out. Note: Loose wires are common and often hard to debug.
+#### A: Ensure that the wires are all plugged in correctly as demonstrated by the pin-out. If the wires are plugged in correctly, take out the wires and rewire it. If all else fails, it is possible that the PTU is not working. Note: Loose wires are common and often hard to debug.
 
