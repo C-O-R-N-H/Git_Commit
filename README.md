@@ -27,7 +27,7 @@ Roles:
 
 ### LOCK 1 &#x2013; LIDAR &#x00A0; :see_no_evil:
 #### Summary
-
+'Lock 1' emulates a laser tripwire security system by utilizing the lidar on the PTU (Pan-Tilt Unit). The objective of this challenge is to cut the beam from the lidar sensor for a given period of time at the specified distance. 
 #### High Level Flow Chart
 A high level overview of this challenge is illustrated below.
 
