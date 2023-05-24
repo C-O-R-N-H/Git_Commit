@@ -91,7 +91,7 @@ The login username and password undergo constant encryption with a dynamic encry
 
 
 
-## Communication Protocols :telephone_receiver:
+## Communication Protocols &#x00A0; :telephone_receiver:
 
 ### Format
 All communication is routed through the GUI as a master controller, ultimately determining the state and status of each board. All communication follows the form; Sentinels -> Mode -> Data -> End of Sequence Character. Each set of communication occurs in a string to ease the reading of data from both the board and GUI.
