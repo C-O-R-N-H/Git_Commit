@@ -223,6 +223,11 @@ Login: If all challenges are complete, ADC board and Master board RX are enabled
 Winning: Pres board RX enabled for failed data.<br />
 
 #### Testing Procedures
+To verify the functionality of each module after the integration of serial communication begin by testing each board with a serial communicator. Send each respective board the string to begin the challenge associated with it and then waited for the appropriate response (i.e. a string for each duck press from the touch board). After this, connect all the boards to the master through the GUI and run the `main.py` file. Connect all the boards following the below diagram:
+
+### IMAGE
+
+As you press through each game state, you should see the LED patterns updating for each challenge. Likewise, each challenge should send the appropriate data back to the GUI. If the data is being transmitted and received correctly, the GUI should also respond accordingly (i.e., if a challenge is completed, the GUI should update to the completion screen).After this, as previously discussed, each challenge should operate as designed and the whole system should run according to the specification defined above. For details regarding the Pin-out or FAQ, see below.
 
 
 
@@ -264,5 +269,5 @@ USB -> USART1<br />
 ## FAQS
 
 #### Q: The Lidar value on the GUI doesn't seem to be changing why is that?
-#### A: Ensure that the wires are all plugged in correctly as demonstrated by the pin-out.
+#### A: Ensure that the wires are all plugged in correctly as demonstrated by the pin-out. Note: Loose wires are common and often hard to debug.
 
