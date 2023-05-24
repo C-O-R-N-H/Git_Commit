@@ -13,13 +13,14 @@ Roles:
 - LIDAR (Challenge 1) Hiroshi
 - TSC (Challenge 2) Quinn
 - Combination Lock (Challenge 3) Richard
+- ADC (Encryption)
 - GUI Will
 
 ## Modules
-- [ADC](#adc)
 - [LOCK 1 LIDAR](#lock-1-lidar)
 - [LOCK 2 TSC](#lock-2-tsc)
 - [LOCK 3 Combination Lock](#lock-3-combination-lock)
+- [ENCRYPTION ADC](#encryption-adc)
 - [GUI](#gui)
 - [Integration](#integration)
 
@@ -57,6 +58,8 @@ To achieve this functionality, the code incorporates a button interrupt in `butt
 
 ![348861480_161077800186860_3664009888897910189_n](https://github.com/C-O-R-N-H/Git_Commit/assets/126120093/0b895828-3689-493c-81ee-e3d67349bade)
 
+### ENCRYPTION (ADC)
+The login username and password undergo constant encryption with a dynamic encryption key that continually changes. This encryption process is visually represented by a PTU (Pan-Tilt Unit) using a periodic pitch and yaw function. The PTU's movement speed reflects the rate of change of the encryption key. The 2 trimpots act as dial locks, independently affecting the motion of each axis. As the trimpots approach their desired configuration, the PTU's motion gradually diminishes, reducing both the amplitude and rate of change of the encryption key. Eventually, when trimpots align with the required position, the PTU comes to a complete stop, and the encryption key becomes all zeros. This signifies that the encryption is disabled, allowing the user to enter the username and password displayed on the screen, thereby enabling a successful login.
 
 
 ### GUI
