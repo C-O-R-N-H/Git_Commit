@@ -17,12 +17,14 @@ Roles:
 - Will: GUI
 
 ## Modules
-- [LOCK 1 LIDAR](#lock-1-lidar)
-- [LOCK 2 TSC](#lock-2-tsc)
-- [LOCK 3 Combination Lock](#lock-3-combination-lock)
-- [ENCRYPTION ADC](#encryption-adc)
-- [GUI](#gui)
-- [Integration](#integration)
+- [LOCK 1 LIDAR](#lock-1--lidar--see_no_evil)
+- [LOCK 2 TSC](#lock-2--touch-sensing-controller-tsc--musical_keyboard)
+- [LOCK 3 Combination Lock](#lock-3--combination-lock--lock)
+- [ENCRYPTION ADC](#encryption-adc--lock_with_ink_pen)
+- [GUI](#gui--desktop_computer)
+- [Communication Protocols](#communication-protocols--telephone_receiver)
+- [Integration](#integration--poop)
+- [PIN-OUT](#pin-out--pushpin)
 
 
 ### LOCK 1 &#x2013; LIDAR &#x00A0; :see_no_evil:
@@ -97,7 +99,11 @@ The login username and password undergo constant encryption with a dynamic encry
 
 
 
-### Load Cell (ADC) &#x00A0; :bomb:
+### Pressure Plate (ADC) &#x00A0; :bomb:
+#### High Level Flow Chart
+![WhatsApp Image 2023-05-24 at 8 54 09 PM](https://github.com/C-O-R-N-H/Git_Commit/assets/126120093/3e82c4aa-7ccc-46e5-b3b5-01ebd6dc7cbd)
+
+#### Circuit Diagram
 ![WhatsApp Image 2023-05-24 at 6 24 19 PM](https://github.com/C-O-R-N-H/Git_Commit/assets/126120093/127497cd-c027-46ed-a12f-ecfa477d7658)
 
 ### GUI &#x00A0; :desktop_computer:
