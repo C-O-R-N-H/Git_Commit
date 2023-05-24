@@ -41,7 +41,9 @@ extern "C" {
 
 /* Exported constants --------------------------------------------------------*/
 /* USER CODE BEGIN EC */
-
+void USART1_IRQHandler();
+void enter_login();
+void enter_waiting();
 /* USER CODE END EC */
 
 /* Exported macro ------------------------------------------------------------*/

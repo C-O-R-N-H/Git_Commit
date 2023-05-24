@@ -25,6 +25,7 @@
 #include "data_handler.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include "led.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -53,6 +54,12 @@ volatile int		adcConvComplete = 0;
 uint8_t pitch;
 uint8_t yaw;
 int scale = 0b00000001;
+uint8_t string[100];
+
+#define BUFFER 100
+int current_game_state = 0;
+char input_buffer[BUFFER] = {0}; //input data
+int input_counter = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -66,6 +73,86 @@ static void MX_ADC1_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+void USART1_IRQHandler(){
+
+	char single_inp;
+	int test = 0;
+
+	test = SerialReceiveChar(&USART1_PORT, &single_inp);
+	if (test == 1){
+		input_buffer[input_counter] = single_inp;
+		input_counter ++;
+		//set_led(0b0101);
+		//SerialOutputChar(single_inp, &USART1_PORT);
+	}
+	if (single_inp == 33){ //check for end of string character
+		if (strncmp(input_buffer, "AA55", 4) == 0){ //check for sentinal char
+			if (input_buffer[4] == 49){ //if msgtype is 1
+				char *data = malloc(4);
+				strcpy(data, input_buffer + 5);
+				data[2] = 0;
+
+				//SerialOutputString(data, &USART1_PORT);
+				empty_buffer(input_buffer, BUFFER);
+				input_counter = 0;
+				test = 0;
+				single_inp = 0;
+
+				state_handler(data, &current_game_state);
+				free(data);
+
+				return;
+			}
+
+
+		}
+		else{
+			//set_led(0b100010); //error
+		}
+		//SerialOutputString(input_buffer, &USART1_PORT);
+
+
+		empty_buffer(input_buffer, BUFFER);
+		input_counter = 0;
+		test = 0;
+		single_inp = 0;
+
+
+	}
+
+}
+
+
+void enter_login(){
+	set_led(0b00110011);
+	while(1){
+		if (current_game_state != 5){
+			SerialOutputString("!", &USART1_PORT);
+			enter_waiting();
+		}
+		HAL_ADC_Start_DMA(&hadc1, (uint32_t*)adcResults, adcChannels);
+	    while (adcConvComplete == 0)
+	    {
+
+	    }
+	    adcConvComplete = 0;
+
+  	    pitch = adcResults[0]/(4000/24);
+
+
+	    yaw = adcResults[1]/(4000/24);
+	    sprintf(string,"AA554%2hu%2hu!",pitch,yaw);
+	    SerialOutputString(string, &USART1_PORT);
+	    HAL_Delay(10);
+	}
+}
+
+void enter_waiting(){
+	set_led(0b11001100);
+	while(1){
+		check_state(current_game_state);
+	}
+}
 
 /* USER CODE END 0 */
 
@@ -85,8 +172,9 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-  uint8_t string[100];
+
   SerialInitialise(BAUD_115200, &USART1_PORT, 0x00);
+  enable_interrupts_RX();
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -109,20 +197,9 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  HAL_ADC_Start_DMA(&hadc1, (uint32_t*)adcResults, adcChannels);
-	  while (adcConvComplete == 0)
-	  {
+	  enter_waiting();
 
-	  }
-	  adcConvComplete = 0;
 
-	  pitch = adcResults[0]/(4000/12);
-	  *led_register = (0b00000001<<pitch)-1;
-
-	  yaw = adcResults[1]/(4000/12);
-	  sprintf(string,"%hu,%hu\r\n",pitch,yaw);
-	  SerialOutputString(string, &USART1_PORT);
-	  HAL_Delay(100);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

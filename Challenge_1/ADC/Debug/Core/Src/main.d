@@ -29,7 +29,7 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_pwr_ex.h \
  ../Core/Inc/serial.h \
  ../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f303xc.h \
- ../Core/Inc/data_handler.h
+ ../Core/Inc/data_handler.h ../Core/Inc/led.h
 ../Core/Inc/main.h:
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:
 ../Core/Inc/stm32f3xx_hal_conf.h:
@@ -62,3 +62,4 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Core/Inc/serial.h:
 ../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f303xc.h:
 ../Core/Inc/data_handler.h:
+../Core/Inc/led.h:

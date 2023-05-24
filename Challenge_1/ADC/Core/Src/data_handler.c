@@ -17,8 +17,8 @@ void state_handler(char *state, int *game_state){
 
 void check_state(int game_state){
 
-	if (game_state == 3){
-		enter_challenge_3();
+	if (game_state == 5){
+		enter_login();
 	}
 
 }
