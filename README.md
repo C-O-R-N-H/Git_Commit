@@ -1,4 +1,4 @@
-# Git_Commit
+# Git_Commit :house_with_garden:
 
 Repository for Thursday 9am 'Git_Commit' Major Project MTRX2700
 
@@ -24,7 +24,6 @@ Roles:
 - [GUI](#gui)
 - [Integration](#integration)
 
-### ADC
 
 ### LOCK 1 &#x2013; LIDAR :see_no_evil:
 Lock 1 emulates a laser tripwire security system by utilizing the lidar on the PTU (Pan-Tilt Unit). The system can be initiated by pressing the pushbutton on the STM32F3 discovery board, which functions as the "deactivation" mechanism. Once the button is activated, the user must position themselves within the designated distance of the lidar to "cut the wire." In order to successfully deactivate the system, the user must maintain button pressure for a minimum of 3 seconds while within the lidar's range. Upon meeting these conditions, an LED interface will appear, with the LEDs sequentially iterating through one by one. At this point, the challenge is considered complete.
@@ -88,11 +87,11 @@ The login username and password undergo constant encryption with a dynamic encry
 ### Load Cell (ADC) :bomb:
 ![WhatsApp Image 2023-05-24 at 6 24 19 PM](https://github.com/C-O-R-N-H/Git_Commit/assets/126120093/127497cd-c027-46ed-a12f-ecfa477d7658)
 
-### GUI
+### GUI :desktop_computer:
 
 
 
-## Communication Protocols:
+## Communication Protocols :telephone_receiver:
 
 ### Format
 All communication is routed through the GUI as a master controller, ultimately determining the state and status of each board. All communication follows the form; Sentinels -> Mode -> Data -> End of Sequence Character. Each set of communication occurs in a string to ease the reading of data from both the board and GUI.
