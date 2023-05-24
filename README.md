@@ -165,6 +165,9 @@ Mode = `7` -> GYRO data <br />
 
 ### Integration &#x00A0; :poop:
 
+#### Summmary
+The Integration of all tasks such that the communication between the GUI and each board is seamless and efficient.
+
 #### User Instructions
 
 #### Testing Procedures
