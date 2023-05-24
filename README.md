@@ -211,7 +211,16 @@ Mode = `7` -> GYRO data <br />
 #### Summmary
 The Integration of all tasks such that the communication between the GUI and each board is seamless and efficient.
 
-#### User Instructions
+#### Implementation
+The implementation of integration begins with the GUI. For every change of frame (state), the GUI sends a state change message to each board. Each board will then respond accordingly to enter a waiting loop for the respective state. In some cases, this may involve the challenge itself for a particular board. If, at any point, the user presses the back button, the boards will all update their state accordingly and send a termination character to close the RX thread in the GUI. Some challenges involve the boards transmitting large amounts of data to the GUI to either display or send to another board, in this case, the message type check within the GUI RX function will handle the message appropriately. If at any point there is a data collision through the transmitting or receiving of data, the string will be discarded so as to not run any unwanted actions. 
+
+For the challenge:<br />
+Waiting state: all RX from boards are disabled, hence no action can change anything.<br />
+Lock 1: Master board RX is enabled for LIDAR data and end-of-challenge data.<br />
+Lock 2: Touch board RX enabled for sound data and end-of-challenge data.<br />
+Lock 3: Accel board and Master board RX enabled for board-to-board TX (velocity data) and end-of-challenge data.<br />
+Login: If all challenges are complete, ADC board and Master board RX are enabled for board-to-board TX (velocity data) and gyro data for encryption. If not, all challenges are done, all RX is disabled.<br />
+Winning: Pres board RX enabled for failed data.<br />
 
 #### Testing Procedures
 
