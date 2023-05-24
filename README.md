@@ -124,7 +124,7 @@ The load cell is bolted on to 2 wooden plates to create a pressure plate, and it
 A Graphical User Interface (GUI) was made to run all the challenges in conjunction from the 'mainframe'.
 
 #### Testing Instructions
-To set up and run the GUI for the challenges, ensure that all four boards are connected to the device. Configure the ports used in the settings file, specifically setting the serial port to 1. In the `main.py` file, verify that the locks for each challenge are set to 0, indicating that they have not been completed yet. Once these configurations are in place, execute the `main.py` file, which will open the loading screen.
+To set up and run the GUI for the challenges, ensure that all four boards are connected to the device. Configure the ports used in the `settings.py` file, specifically setting the `ENABLESERIAL` variable to 1. In the `main.py` file, verify that the locks for each challenge are set to 0, indicating that they have not been completed yet. Once these configurations are in place, execute the `main.py` file, which will open the loading screen.
 
 After the loading screen appears, the user can press the "Begin" button to start and attempt any desired challenge. The challenges (1-3) must be completed within the allocated time limit of 5 minutes. The current game state, indicating the current challenge, will be displayed on the LED interface of the board. For example, challenge 1 will have one LED illuminated, representing its active state.
 
