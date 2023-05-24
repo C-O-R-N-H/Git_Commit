@@ -169,7 +169,7 @@ For troubleshooting and setting ADC circuits, a multimeter is highly recommended
 
 Common errors:
 
--	ADC level is flickering between two consecutive levels: Noise and other inconsistencies may cause an ADC value on the edge of a defined level to flicker to the adjacent level. Implementing a rolling average will reduce such errors. Selecting the resolution of the levels also will impact this. Too many levels will increase the chances of the user setting the ADC near another level, and the narrow ranges will allow the noise to impact the levels more.
+-	ADC level is flickering between two consecutive levels: Noise and other inconsistencies may cause an ADC value on the edge of a defined level to flicker to the adjacent level. Implementing a rolling average (`filter.c`) will reduce such errors. Selecting the resolution of the levels also will impact this. Too many levels will increase the chances of the user setting the ADC near another level, and the narrow ranges will allow the noise to impact the levels more.
 -	ADC values are disordered/wrong: Always check which ADC has called the `ConvCpltCallBack` function and has a new reading available. Understand the voltage input range of the ADC channel and transform your circuit’s output voltage accordingly. Use a multimeter to check wiring and perform general troubleshooting.
 
 
