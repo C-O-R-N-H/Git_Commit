@@ -136,7 +136,7 @@ Mode = `6` -> LIDAR target <br />
 Mode = `7` -> GYRO data <br />
 - Data -> 12 bytes (4 for each direction)<br />
 
-### Integration
+### Integration :poop:
 
 #### User Instructions
 
@@ -174,3 +174,6 @@ PA9 -> Group 4 Channel<br />
 PA10 -> Group 4 Sample<br />
 PB4 -> Group 5 Sample<br />
 PB6 -> Group 5 Channel<br />
+
+### Controller Board
+USB -> USART1<br />
