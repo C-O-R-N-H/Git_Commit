@@ -10,10 +10,9 @@ Group Members:
 - Ruchir Bais 
 
 Roles:
-- ADC (Challenge 1) Ruchir
-- LIDAR (Challenge 2) Hiroshi
-- TSC (Challenge 3) Quinn
-- Combination Lock (Challenge 4) Richard
+- LIDAR (Challenge 1) Hiroshi
+- TSC (Challenge 2) Quinn
+- Combination Lock (Challenge 3) Richard
 - GUI Will
 
 ## Modules
@@ -26,13 +25,25 @@ Roles:
 ### ADC
 
 ### LIDAR
+
+### User Instructions
+
+### Testing Procedures
 ![Tron Major Flow Chart](https://github.com/C-O-R-N-H/Git_Commit/assets/126120093/ed56335c-d149-4d5c-8c2c-43f4ae2140a2)
 
 
 
 ### TSC
 
+### User Instructions
+
+### Testing Procedures
+
 ### Combination Lock
+
+### User Instructions
+
+### Testing Procedures
 
 #### High Level Flow Chart
 ```mermaid
