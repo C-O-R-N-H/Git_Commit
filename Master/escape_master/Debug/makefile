@@ -60,8 +60,8 @@ all: main-build
 main-build: escape_master.elf secondary-outputs
 
 # Tool invocations
-escape_master.elf escape_master.map: $(OBJS) $(USER_OBJS) /Users/will/STM32CubeIDE/Assesment\ 3/escape_master/STM32F303VCTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "escape_master.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/Users/will/STM32CubeIDE/Assesment 3/escape_master/STM32F303VCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="escape_master.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+escape_master.elf escape_master.map: $(OBJS) $(USER_OBJS) C:\Users\Quinn\Git_Commit\Master\escape_master\STM32F303VCTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "escape_master.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\Quinn\Git_Commit\Master\escape_master\STM32F303VCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="escape_master.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
