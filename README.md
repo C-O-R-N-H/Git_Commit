@@ -93,13 +93,25 @@ Second, we tested the 'position checking' mechanism of the system. That is, if a
 
 
 ### Encryption (ADC) &#x00A0; :lock_with_ink_pen:
+#### Summary
+The STM board uses 2 ADC Channels to stabilize the PTU motion and encryption. The objective of the task is to turn 2 trimpots to a specific orientation to allow the player to “stabilize”, or essentially get rid of the encryption and login.![image](https://github.com/C-O-R-N-H/Git_Commit/assets/65000064/39a418df-11b9-41d9-b1ff-c25e1b63d17d)
+
+#### Usage
 The login username and password undergo constant encryption with a dynamic encryption key that continually changes. This encryption process is visually represented by a PTU (Pan-Tilt Unit) using a periodic pitch and yaw function. The PTU's movement speed reflects the rate of change of the encryption key. The 2 trimpots act as dial locks, independently affecting the motion of each axis. As the trimpots approach their desired configuration, the PTU's motion gradually diminishes, reducing both the amplitude and rate of change of the encryption key. Eventually, when trimpots align with the required position, the PTU comes to a complete stop, and the encryption key becomes all zeros. This signifies that the encryption is disabled, allowing the user to enter the username and password displayed on the screen, thereby enabling a successful login.
 
+#### Testing
 
 
 
 
 ### Pressure Plate (ADC) &#x00A0; :bomb:
+#### Summary
+The STM board ADC to check for weight kept on the scale. It uses a load cell as a pressure plate, and the objective is to replace the statue/key with another object quick enough to not trigger the alarm.
+
+#### Usage
+The load cell is bolted on to 2 wooden plates to create a pressure plate, and it is wired to an op-amp circuit that outputs a load dependent voltage to the board. When the load is removed from the plate, a single LED lights up to show that no load is being detected. After the set specified seconds pass, if the load hasn’t been detected on the plate again, it triggers the alarm. If replaced within the time, the LED turns off and no alarm is triggered. The player must remove and replace the load within the specified seconds to win the escape room.
+
+
 #### High Level Flow Chart
 ![WhatsApp Image 2023-05-24 at 8 54 09 PM](https://github.com/C-O-R-N-H/Git_Commit/assets/126120093/3e82c4aa-7ccc-46e5-b3b5-01ebd6dc7cbd)
 
