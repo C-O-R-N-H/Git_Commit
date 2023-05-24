@@ -50,16 +50,44 @@ To achieve this functionality, the code incorporates a button interrupt in `butt
 
 ### LOCK 3 (Combination Lock)
 
-#### User Instructions
+#### Summary
+In this challenge, a secondary STM board &#x2013; the controller &#x2013; is used to control the movement (pan and tilt) of the PTU. The objective of the task is to move the PTU into three specific positions in order to 'unlock' the combination lock. 
 
-#### Testing Procedures
+#### Usage
+The yaw of the PTU is controlled by the roll of the secondary STM, and the pitch of the PTU is controlled by the pitch of the STM. The controller should be held so that the micro USB connection is at the end furthest from the user. In this configuration, tilting the controller to the left causes the PTU to turn to the left in the yaw axis. Conversely, tilting the controller to the right makes the PTU swivel to the right. Similarly, increasing the pitch of the controller (tilting the end of the controller furthest from the user up) causes the LIDAR unit on the PTU to tilt up, and vice versa. Whenever the controller is held (roughly) horizontal, the LEDs on the same board will be off. When the controller is tilted enough so that it is not considered horizontal, one LED will light up indicating the direction in which the board is tilted.
+
+Once the position of the PTU matches the desired position, the blue and orange LEDs on the master board will light up. To 'record' the position of the PTU, the controller must be held horizontal (so that the PTU is still) for 2.5 seconds. If the position is correct, the green LEDs on the master board will flash once and the user will progress to the next position. If the position is not correct, the master board will flash red twice and the lock will be reset &#x2013; the user must start from the first position again. Once all three positions have been correctly located in succession, the combination lock is unlocked and the challenge is complete.
+
+#### Valid input
+The only input to the challenge is the orientation of the controller &#x2013; specifically, the pitch and roll. The pitch and roll are translated into the desired velocity of the PTU in both the horizontal and vertical axes, which are sent through the GUI to the master board. The values of pitch and roll are both valid in the range -72.1&#x00B0; to 72.1&#x00B0;. If either of the pitch or roll exit the valid range, the new value is ignored and the controller uses the last valid orientation to calculate the PTU velocity.
+
+#### Functions and modularity
+
+#### Testing
+All data validation of the controller is handled on the secondary board according to the valid inputs mentioned in the above section. Thus the velocity data that is sent to the master board is always correct. This is tested by turning the controller upside down &#x2013; the PTU continues turning at the last valid velocity before the controller was inverted. When the controller is returned to its upright position and the orientation data is valid again, the PTU resumes moving according to this orientation.
+
+Testing was also performed to ensure that the accelerometer data was sufficiently stable by shaking the controller and tilting it rapidly in different directions. Despite these agitations, the velocity data is always robust, and this is corroborated by the smooth motion of the PTU.
+
+When the challenge is started, the controller undergoes a callibration phase where it finds and corrects for any zero errors, guaranteeing that the pitch and roll &#x2013; and hence velocity &#x2013; in the starting position is always zero. To test this callibration, we held the controller at various non-horizontal positions during the callibration phase. The data was printed to terminal, and in every case, the orientation and velocity at the starting position was zero. Furthermore, the controller functioned exactly as intended, with the starting position being considered as the stationary position.
+
+The logic of the challenge is tested through various methods. First, we checked that at every stage (position 1, position 2, and position 3), getting the position wrong causes the stage to be reset to position 1. This is confirmed by printing the current stage to the serial port. Conversely, we checked that at every stage, getting the position right causes the user to progress to the next stage and, importantly, if that stage was the last one, the challenge is completed, indicated by all the LEDs on the master board turning on. 
+
+Second, we tested the 'position checking' mechanism of the system. That is, if at any point the PTU is held stationary for 2.5 seconds, the program evaluates whether the position is correct. This can be seen by the fact that whenever the controller is held horizontal for 2.5 seconds, the LEDs on the master board flash green or red, depending on whether the position was correct. On the other hand, as long as the controller is not held horizontal for a full 2.5 seconds, the LEDs on the master board never flash green or red. This confirms that the 'position checking' only occurs when the PTU is stationary for 2.5 seconds, as required.
 
 #### High Level Flow Chart
 
 ![348861480_161077800186860_3664009888897910189_n](https://github.com/C-O-R-N-H/Git_Commit/assets/126120093/0b895828-3689-493c-81ee-e3d67349bade)
 
+#### Notes
+
+
+
 ### ENCRYPTION (ADC)
 The login username and password undergo constant encryption with a dynamic encryption key that continually changes. This encryption process is visually represented by a PTU (Pan-Tilt Unit) using a periodic pitch and yaw function. The PTU's movement speed reflects the rate of change of the encryption key. The 2 trimpots act as dial locks, independently affecting the motion of each axis. As the trimpots approach their desired configuration, the PTU's motion gradually diminishes, reducing both the amplitude and rate of change of the encryption key. Eventually, when trimpots align with the required position, the PTU comes to a complete stop, and the encryption key becomes all zeros. This signifies that the encryption is disabled, allowing the user to enter the username and password displayed on the screen, thereby enabling a successful login.
+
+
+
+
 
 ### Load Cell (ADC)
 ![WhatsApp Image 2023-05-24 at 6 24 19 PM](https://github.com/C-O-R-N-H/Git_Commit/assets/126120093/127497cd-c027-46ed-a12f-ecfa477d7658)
