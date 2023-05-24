@@ -26,10 +26,14 @@ Roles:
 ### ADC
 
 ### LOCK 1 (Lidar)
-Lock 1 attempts to mimic a laser tripwire security system through use of the lidar on the PTU. The system works by pressing the pushbutton on the STM32F3 discovery board as this 'deactivates' the system. When the button is pressed, the user must now 'cut the wire' by being in the target distance of the lidar. While the user 
+Lock 1 emulates a laser tripwire security system by utilizing the lidar on the PTU (Pan-Tilt Unit). The system can be initiated by pressing the pushbutton on the STM32F3 discovery board, which functions as the "deactivation" mechanism. Once the button is activated, the user must position themselves within the designated distance of the lidar to "cut the wire." In order to successfully deactivate the system, the user must maintain button pressure for a minimum of 3 seconds while within the lidar's range. Upon meeting these conditions, an LED interface will appear, with the LEDs sequentially iterating through one by one. At this point, the challenge is considered complete.
 
-A high level of this code is illustrated below.
+A high level overview of this challenge is illustrated below.
+
+
 ![Tron Major Flow Chart](https://github.com/C-O-R-N-H/Git_Commit/assets/126120093/ed56335c-d149-4d5c-8c2c-43f4ae2140a2)
+
+To achieve this functionality, the code incorporates a button interrupt in `button_interrupt.c` to detect when the button is pressed. Once the button press is detected, the interrupt is enabled. Following that, Timer 3 is initialized to track the duration of the button press. During this countdown, the code also utilizes the `check_condition()` function in `timer.c` to verify if the user is within the range of the lidar. Once all the conditions are met, an 'unlocked' flag is set to enable the LEDs to iterate through their sequence, indicating successful completion of the challenge.
 
 #### User Instructions
 
