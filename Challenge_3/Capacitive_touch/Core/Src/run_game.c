@@ -92,19 +92,42 @@ void enter_challenge_3()
 
 		if(completed == 1)
 		{
+			SerialOutputString(completed_str, &USART1_PORT);
 			return;
 		}
-
-		//set_led(0b11111111);
 	}
+}
+
+void reset_TSC()
+{
+	sense_index = 0;
+	roll_index = 0;
+	channel_index = 0;
+	check_zero = 0;
+	note_index = 0;
+	is_zero = 0;
+
+	memset(channel_out_arr, 0 ,sizeof(channel_out_arr));
+	memset(transmit_cnt_arr, 0 ,sizeof(transmit_cnt_arr));
+	memset(note_array, 0 ,sizeof(note_array));
+	memset(group_sense_values, 0 ,sizeof(group_sense_values));
+	memset(group_sum, 0 ,sizeof(group_sum));
+	memset(channel_out_str, 0 ,sizeof(channel_out_str));
+	memset(group_sense_val_buffer, 0 ,sizeof(group_sense_val_buffer));
+	memset(group_roll_av_buffer, 0 ,sizeof(group_roll_av_buffer));
+	memset(channel_out_buff_arr, 0 ,sizeof(channel_out_buff_arr));
+
+	HAL_TSC_IODischarge(&htsc, ENABLE);
+
+	return;
 }
 
 void handle_error()
 {
-	// If max count error occurs, flash all LEDs for 2 seconds, then return to main game loop
 	set_led(0b11111111);
-	// Upon returning to main game loop, everything gets reset
-	enter_challenge_3();
+	reset_TSC();
+
+	return;
 }
 
 void enter_waiting()
@@ -211,7 +234,8 @@ void get_output_channel()
 	// Send completion string if note array is correct
 	if(note_array[NUM_NOTES - 1] == correct_order[NUM_NOTES - 1])
 	{
-		SerialOutputString(completed_str, &USART1_PORT);
+		//SerialOutputString(completed_str, &USART1_PORT);
 		completed = 1;
+		return;
 	}
 }

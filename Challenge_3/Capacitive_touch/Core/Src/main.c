@@ -20,7 +20,6 @@
 #include "main.h"
 
 /* Private includes --------------------------------------------------------- */
-//#include "TSC_functions.h"
 #include "serial.h"
 #include "data_handler.h"
 #include "led.h"

@@ -12,5 +12,7 @@ void enter_challenge_3(void);
 void handle_error(void);
 void enter_waiting(void);
 void get_output_channel(void);
+void reset_TSC(void);
+
 
 #endif /* INC_RUN_GAME_H_ */
