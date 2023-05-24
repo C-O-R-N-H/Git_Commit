@@ -1,0 +1,7 @@
+core_cm4.h:1688:22:__NVIC_EnableIRQ	2
+core_cm4.h:1816:22:__NVIC_SetPriority	2
+timer.c:44:6:enable_timer_interrupt	1
+timer.c:62:6:TimerInitialise	1
+timer.c:81:6:set_lock_compare_time	3
+timer.c:94:6:TIM3_IRQHandler	2
+timer.c:107:6:TIM4_IRQHandler	2

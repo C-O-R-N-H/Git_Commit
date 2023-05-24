@@ -1,0 +1,8 @@
+led.c:12:6:enable_clocks	1
+led.c:19:6:initialise_board	1
+led.c:27:6:show_orientation_led	17
+led.c:67:6:set_led	1
+led.c:74:6:turn_on_led	1
+led.c:81:6:turn_off_led	1
+led.c:88:6:chase_led	1
+led.c:96:6:flash_led	8

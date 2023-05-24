@@ -1,0 +1,6 @@
+../Core/Src/accelerometer.c:15:6:stm_accel_init	40	static
+../Core/Src/accelerometer.c:28:6:find_zero_errors	48	static
+../Core/Src/accelerometer.c:50:6:read_stm_accel_data	48	static
+../Core/Src/accelerometer.c:91:6:get_orientation	32	static
+../Core/Src/accelerometer.c:103:6:get_velocity	24	static
+../Core/Src/accelerometer.c:110:8:calculate_velocity	32	static

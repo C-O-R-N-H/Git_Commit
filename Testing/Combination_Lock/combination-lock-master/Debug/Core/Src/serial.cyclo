@@ -1,0 +1,8 @@
+serial.c:60:6:SerialInitialise	7
+serial.c:119:6:SerialOutputChar	2
+serial.c:128:6:SerialOutputString	3
+serial.c:143:9:SerialReceiveChar	5
+serial.c:168:6:SerialOutputBuffer	2
+serial.c:187:10:SerialInputPacketHeader	6
+serial.c:219:10:SerialInputDataPacket	3
+serial.c:236:6:read_velocity	3

@@ -1,0 +1,4 @@
+filter.c:12:6:window_init	1
+filter.c:20:9:moving_average	1
+filter.c:27:6:update_window	2
+filter.c:39:9:mean	3
