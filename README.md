@@ -47,7 +47,7 @@ To achieve this functionality, the code incorporates a button interrupt in `butt
 
 #### Testing Procedures
 
-### LOCK 3 &#x2013; Combination Lock :lock:
+### LOCK 3 &#x2013; Combination Lock &#x00A0; :lock:
 
 #### Summary
 In this challenge, a secondary STM board &#x2013; the controller &#x2013; is used to control the movement (pan and tilt) of the PTU. The objective of the task is to move the PTU into three specific positions in order to 'unlock' the combination lock. 
