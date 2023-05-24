@@ -53,6 +53,10 @@ To achieve this functionality, the code incorporates a button interrupt in `butt
 #### Summary
 In this challenge, a secondary STM board &#x2013; the controller &#x2013; is used to control the movement (pan and tilt) of the PTU. The objective of the task is to move the PTU into three specific positions in order to 'unlock' the combination lock. 
 
+#### High Level Flow Chart
+
+![348861480_161077800186860_3664009888897910189_n](https://github.com/C-O-R-N-H/Git_Commit/assets/126120093/0b895828-3689-493c-81ee-e3d67349bade)
+
 #### Usage
 The yaw of the PTU is controlled by the roll of the secondary STM, and the pitch of the PTU is controlled by the pitch of the STM. The controller should be held so that the micro USB connection is at the end furthest from the user. In this configuration, tilting the controller to the left causes the PTU to turn to the left in the yaw axis. Conversely, tilting the controller to the right makes the PTU swivel to the right. Similarly, increasing the pitch of the controller (tilting the end of the controller furthest from the user up) causes the LIDAR unit on the PTU to tilt up, and vice versa. Whenever the controller is held (roughly) horizontal, the LEDs on the same board will be off. When the controller is tilted enough so that it is not considered horizontal, one LED will light up indicating the direction in which the board is tilted.
 
@@ -72,9 +76,6 @@ The logic of the challenge is tested through various methods. First, we checked 
 
 Second, we tested the 'position checking' mechanism of the system. That is, if at any point the PTU is held stationary for 2.5 seconds, the program evaluates whether the position is correct. This can be seen by the fact that whenever the controller is held horizontal for 2.5 seconds, the LEDs on the master board flash green or red, depending on whether the position was correct. On the other hand, as long as the controller is not held horizontal for a full 2.5 seconds, the LEDs on the master board never flash green or red. This confirms that the 'position checking' only occurs when the PTU is stationary for 2.5 seconds, as required.
 
-#### High Level Flow Chart
-
-![348861480_161077800186860_3664009888897910189_n](https://github.com/C-O-R-N-H/Git_Commit/assets/126120093/0b895828-3689-493c-81ee-e3d67349bade)
 
 
 
