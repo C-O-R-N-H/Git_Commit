@@ -1,0 +1,2 @@
+../Core/Src/servo.c:5:6:set_yaw	16	static
+../Core/Src/servo.c:9:6:set_pitch	16	static

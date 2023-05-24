@@ -1,0 +1,2 @@
+../Core/Src/challenge_2.c:27:6:enter_challenge_2	88	static
+../Core/Src/challenge_2.c:151:6:HAL_TIM_IC_CaptureCallback	24	static
