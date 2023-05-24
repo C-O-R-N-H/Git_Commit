@@ -159,7 +159,7 @@ The load cell is bolted on to 2 wooden plates to create a pressure plate, and it
 ![WhatsApp Image 2023-05-24 at 6 24 19 PM](https://github.com/C-O-R-N-H/Git_Commit/assets/126120093/127497cd-c027-46ed-a12f-ecfa477d7658)
 
 #### ADC Testing
-Initial testing – Each ADC channel was connected to the output of a trimpot. Dividing each ADC channel into 8 levels and mapping them to the LEDs allowed us to verify each PIN and channel. 
+For the initial testing each ADC channel was connected to the output of a trimpot. Dividing each ADC channel into 8 levels and mapping them to the LEDs allowed us to verify each PIN and channel. 
 
 Once this basic verification is done, multiple ADC values measured by the board can be output via serial communication using the sprintf function to be inspected. Along with this, the set_led function can allow uniquely lighting the LEDS to visually represent the values. Both were used to verify the functionality of the Encryption ADC module, which required 24 levels from 2 separate channels. 
 
