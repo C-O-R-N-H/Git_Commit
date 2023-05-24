@@ -120,6 +120,11 @@ The load cell is bolted on to 2 wooden plates to create a pressure plate, and it
 ![WhatsApp Image 2023-05-24 at 6 24 19 PM](https://github.com/C-O-R-N-H/Git_Commit/assets/126120093/127497cd-c027-46ed-a12f-ecfa477d7658)
 
 ### GUI &#x00A0; :desktop_computer:
+#### Summary
+A Graphical User Interface (GUI) was made to run all the challenges in conjunction from the 'mainframe'.
+
+#### Testing Instructions
+
 
 
 
