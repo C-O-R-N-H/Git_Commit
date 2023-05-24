@@ -17,15 +17,16 @@ Roles:
 
 ## Modules
 - [ADC](#adc)
-- [LIDAR](#lidar)
-- [TSC](#tsc)
-- [Combination Lock](#combination-lock)
+- [LOCK 1 LIDAR](#lock-1-lidar)
+- [LOCK 2 TSC](#lock-2-tsc)
+- [LOCK 3 Combination Lock](#lock-3-combination-lock)
 - [GUI](#gui)
 - [Integration](#integration)
 
 ### ADC
 
-### LIDAR
+### LOCK 1 (Lidar)
+Lock 1 attempts to mimic a laser tripwire security system through use of the lidar on the PTU. The system works by pressing the pushbutton on the STM32F3 discovery board as this 'deactivates' the system. When the button is pressed, the user must now 'cut the wire' by being
 
 #### User Instructions
 
@@ -34,13 +35,13 @@ Roles:
 
 
 
-### TSC
+### LOCK 2 (TSC)
 
 #### User Instructions
 
 #### Testing Procedures
 
-### Combination Lock
+### LOCK 3 (Combination Lock)
 
 #### User Instructions
 
