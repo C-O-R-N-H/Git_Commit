@@ -57,10 +57,53 @@ Once all the conditions are successfully satisfied and fully met (i.e., the butt
 
 
 ### LOCK 2 &#x2013; Touch Sensing Controller (TSC) &#x00A0; :musical_keyboard:
-
+#### Summary
+The objective of this challenge is to emulate a high-tech lock, in which you must play a song using hidden items on the shelf. It uses touch capacitance to detect when the hidden objects are pressed. 
 #### User Instructions
+This section outlines how the user can interface with the TSC module of this project and how to set it up. The software component for this module is contained in the Challenge3 folder.
+User inputs: 
+ -	6 touch capacitive electrodes 
+
+To interface with the system, the user simply needs to connect an electrode (anything that can conduct electricity) to its respective channel input pin on the discovery board. These pins are listed in the PIN-OUT section of this document. Once all electrodes are connected, a string will be sent through serial when an electrode is tapped by the user. This string corresponds to the electrode that was tapped, and can be used to trigger an event elsewhere, depending on which electrode is tapped. In our case, this event is playing a note corresponding to the tapped electrode. The output notes are as follows:
+
+ -	Channel 1 -> E
+ -	Channel 2 -> D#
+ -	Channel 3 -> B
+ -	Channel 4 -> D
+ -	Channel 5 -> C
+ -	Channel 6 -> A
+
+It is important to understand that the note playing is not handled by the TSC software. All this component does is send a string with the corresponding channel number in it when an electrode is tapped.  
+The electrodes should be connected as follows:
 ![tsc_crkt (1)](https://github.com/C-O-R-N-H/Git_Commit/assets/126728164/235b70b4-df86-4cac-9841-cbe9acc46247)
+The above figure shows the general circuit layout for an individual TSC group, as they are all connected the same way. The only difference between these groups is the GPIO pins they are connected to on the discovery board, detailed in the PIN-OUT section of the document. The electrode parasitic capacitance represents the capacitance of the electrode itself, which changes when the user places their finger on it. This change is what the TSC sensors detect.
+To complete our challenge specifically, the user must tap the electrodes (play-doh ducks in this case) in the correct order, playing a song (“Fur Elise” by Beethoven). The order is 1-2-1-2-1-3-4-5-6. Once the notes are played in this order, a special completion string is sent through serial, telling the master board that the challenge is complete, and green LEDs are lit for each correct note played. If an incorrect note is played, the user must restart playing the song from the beginning, and red LEDs are lit. 
+This module also implements some error checking. When a max count error is detected due to a channel being faulty, all relevant variables are reset, and sampling capacitors are discharged, effectively resetting the entire module until the error is fixed.
+If the user wishes to change the electrodes, they may encounter a minor issue, where the output string is sent twice if the electrode is held for some time. Fixing this issue is detailed in the “Testing procedures” section of this module. 
+
 #### Testing Procedures
+This section outlines how the user can test the functionality of the module and what to do in case of some common errors. 
+
+Testing:
+
+If the circuit is correctly wired and all electrodes are firmly connected, the first step to testing this module is checking that tapping an electrode outputs the correct channel number. This can be done by directly checking the serial output of the module. If the user wishes to test this without the serial module, they can set a certain number of LEDs corresponding to the TSC output channel, using the set_led function. 
+If this does not work, the user can do the following:
+
+If the user wishes to test the raw sensor readings, they can use sprintf to add the group_sense_values to the output string, and read the data through a serial plotter. The plot should be a very noisy line, which should decrease when the electrode is pressed. 
+
+To test the rolling average value, the user can do the same as above but for the group_roll_av_buffer values. Plotting the raw data and rolling average on the same plot should show how the rolling average values are much more stable than the noisy sensor data, making it much more useable. The rolling average line should be centered within the raw data line. 
+
+Once the rolling average is working, the next thing the user can test is the output channel, without limiting it to a single output. Plotting this should give a flat line when nothing is pressed, and a square pulse when it is pressed. This is accomplished by detecting when the drop happens, and setting the output channel when it occurs. 
+
+If all the above functions correctly, but the output is still incorrect, see the following section for common errors.
+
+Common errors:
+
+-	Everything works fine, except that there are occasionally two strings sent when an electrode is pressed. To fix this issue, increase the size of the CHANNEL_BUFFER value. This increases the number of counts for which a group needs to output 0 before it can be output again, thus decreasing the sensitivity of the sensors. 
+
+-	I have switched my electrodes and now the outputs no longer work correctly. The current code has been tested with a coin separated from touch by tape, and play-doh that is fully exposed. If you are using a metal plate (or something similar), consider covering with a dielectric (something that does not conduct electricity). If not, changing the sensitivity of the rolling average detection or the number of measurements used to detect a drop (ROLL_AVERAGE_BUFFER) could fix the issue.
+
+-	I have everything set up correctly but am not receiving any outputs, or my outputs are very wrong. Double check that all the connections are firmly connected, especially the ground cable. If all your connections are correct and solid, sometimes restarting the board and power cycling can fix this issue. Also ensure that you are initializing all your variables to 0 when starting the program. 
 
 ### LOCK 3 &#x2013; Combination Lock &#x00A0; :lock:
 
