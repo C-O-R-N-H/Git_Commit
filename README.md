@@ -33,7 +33,7 @@ A high level overview of this challenge is illustrated below.
 
 
 ![Tron Major Flow Chart](https://github.com/C-O-R-N-H/Git_Commit/assets/126120093/ed56335c-d149-4d5c-8c2c-43f4ae2140a2)
-#### Usage
+#### User Instructions
 Lock 1 emulates a laser tripwire security system by utilizing the lidar on the PTU (Pan-Tilt Unit). The system can be initiated by pressing the pushbutton on the STM32F3 discovery board, which functions as the "deactivation" mechanism. Once the button is activated, the user must position themselves within the designated distance of the lidar to "cut the wire." In order to successfully deactivate the system, the user must maintain button pressure for a minimum of 3 seconds while within the lidar's range. Upon meeting these conditions, an LED interface will appear, with the LEDs sequentially iterating through one by one. At this point, the challenge is considered complete.
 
 
@@ -41,18 +41,15 @@ Lock 1 emulates a laser tripwire security system by utilizing the lidar on the P
 To achieve this functionality, the code incorporates a button interrupt in `button_interrupt.c` to detect when the button is pressed. Once the button press is detected, the interrupt is enabled. Following that, Timer 3 is initialized to track the duration of the button press. During this countdown, the code also utilizes the `check_condition()` function in `timer.c` to verify if the user is within the range of the lidar. Once all the conditions are met, an 'unlocked' flag is set to enable the LEDs to iterate through their sequence, indicating successful completion of the challenge.
 
 
-
-#### User Instructions
-
 #### Testing Procedures
 Testing was performed to ensure that the lidar distance being read is accurate and able to be used without any disturbances. As the PTU in use uses Pulse Width Modulation (PWM) for the lidar, arduino serial plotter was used to plot the lidar readings generated from the PWM. This generated a graph that was able to identify that the data being read was noisy and cannot be used without any adjustments. In order to combat this, a moving average was implemented with a window size of 100 as demonstrated in `filter.c`. The readings were then plotted again in arduino serial plotter and it was evident that the moving average had made an impact on the data as it was now able to be used.
 Note: PUTTY or any serial reading app can be used instead of arduino to monitor the noise. 
 
 The code implementation is designed to handle both PWM and I2C readings by evaluating the absolute difference between the lidar readings and the target distance. This flexibility is crucial because PTUs typically operate with either PWM or I2C as their preferred method for obtaining lidar values. By considering both PWM and I2C readings, the code ensures that any PTU can be used regardless of the method it employs. The code checks if the absolute difference between the PWM reading and the target distance, as well as the absolute difference between the I2C reading and the target distance, falls within the specified threshold. This adaptable approach accommodates different PTUs and their varying lidar reading mechanisms. The `check_condition` function in the `timer.c` source file effectively demonstrates this versatility.
 
-The core elements of the system consist of the button, timer, and lidar reading functionality. To verify the button interrupt functionality, the `set_led` function in `led.c` was invoked, allowing visual confirmation of the button interrupt being triggered when the button is pressed. Similarly, the timer interrupt functionality was tested in a similar manner. Since the timer interrupt is only triggered when the conditions specified in `check_condition` are met (i.e., the button is pressed while the user is within the specified distance range), the `chase_led` function is called, visually illustrating an LED "chase" effect on the discovery board.
+The fundamental elements of the system are comprised of the button, timer, and lidar reading functionality. To verify the proper functioning of the button interrupt, the `set_led` function in `led.c` was invoked, providing a visual indication of whether the button interrupt is triggered upon pressing the button. Similarly, the timer interrupt was tested using a similar approach. As the timer interrupt is only triggered when the conditions specified in `check_condition` are met (i.e., the button is pressed while the user is within the specified distance range), the `chase_led` function is called, resulting in a visual representation of an LED "chase" effect on the discovery board. Additionally, the conditions can be verified using a serial communication application such as PuTTY or Arduino by printing the values to observe their behavior.
 
-These tests and implementations ensure the proper functioning of the button interrupt, timer interrupt, and lidar readings, thereby contributing to the overall reliability and functionality of the system.
+Once all the conditions are successfully satisfied and fully met (i.e., the button is pressed while the user is within the specified distance range for a duration of 3 seconds), a boolean variable named `flashed` is set to true. Subsequently, the `completion_led` function is invoked to indicate the completion of the challenge. At this point, the challenge is considered successfully completed!
 
 
 
