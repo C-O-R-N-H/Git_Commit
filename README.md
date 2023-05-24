@@ -26,12 +26,14 @@ Roles:
 ### ADC
 
 ### LOCK 1 (Lidar)
-Lock 1 attempts to mimic a laser tripwire security system through use of the lidar on the PTU. The system works by pressing the pushbutton on the STM32F3 discovery board as this 'deactivates' the system. When the button is pressed, the user must now 'cut the wire' by being
+Lock 1 attempts to mimic a laser tripwire security system through use of the lidar on the PTU. The system works by pressing the pushbutton on the STM32F3 discovery board as this 'deactivates' the system. When the button is pressed, the user must now 'cut the wire' by being in the target distance of the lidar. While the user 
+
+A high level of this code is illustrated below.
+![Tron Major Flow Chart](https://github.com/C-O-R-N-H/Git_Commit/assets/126120093/ed56335c-d149-4d5c-8c2c-43f4ae2140a2)
 
 #### User Instructions
 
 #### Testing Procedures
-![Tron Major Flow Chart](https://github.com/C-O-R-N-H/Git_Commit/assets/126120093/ed56335c-d149-4d5c-8c2c-43f4ae2140a2)
 
 
 
