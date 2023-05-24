@@ -1,0 +1,9 @@
+core_cm4.h:1688:22:__NVIC_EnableIRQ	2
+main.c:91:5:main	1
+main.c:140:6:SystemClock_Config	4
+main.c:187:13:MX_TSC_Init	2
+main.c:234:13:MX_USB_PCD_Init	2
+main.c:265:13:MX_GPIO_Init	1
+main.c:313:6:USART1_IRQHandler	5
+main.c:349:6:EXTI2_TSC_IRQHandler	5
+main.c:370:6:Error_Handler	1
