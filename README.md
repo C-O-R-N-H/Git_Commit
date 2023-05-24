@@ -129,7 +129,7 @@ Mode = `7` -> GYRO data <br />
 
 
 
-## PIN-OUT:
+## PIN-OUT &#x00A0; :push_pin:
 ### Master Board:
 USB -> USART1 <br />
 PA15 -> PWM1<br />
