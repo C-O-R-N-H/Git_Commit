@@ -26,24 +26,24 @@ Roles:
 
 ### LIDAR
 
-### User Instructions
+#### User Instructions
 
-### Testing Procedures
+#### Testing Procedures
 ![Tron Major Flow Chart](https://github.com/C-O-R-N-H/Git_Commit/assets/126120093/ed56335c-d149-4d5c-8c2c-43f4ae2140a2)
 
 
 
 ### TSC
 
-### User Instructions
+#### User Instructions
 
-### Testing Procedures
+#### Testing Procedures
 
 ### Combination Lock
 
-### User Instructions
+#### User Instructions
 
-### Testing Procedures
+#### Testing Procedures
 
 #### High Level Flow Chart
 ```mermaid
@@ -98,6 +98,12 @@ Mode = `6` -> LIDAR target <br />
 
 Mode = `7` -> GYRO data <br />
 - Data -> <br />
+
+### Integration
+
+#### User Instructions
+
+#### Testing Procedures
 
 
 
