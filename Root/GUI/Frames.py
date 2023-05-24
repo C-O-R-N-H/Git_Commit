@@ -36,6 +36,9 @@ def rx_data(reader):
                         elif type(settings.LOGIN_SYSTEM) == Lock_3:
                             settings.LOCK_3_COMPLETE = 1
                         break
+                    if (int(complete) == 0):
+                        settings.PRES_FAIl = 1
+                    
                 if (int(mode) == 3): #notes
                     data = read_str[5:11]
                     if (int(data[0]) >= 1):
@@ -688,13 +691,20 @@ class Winning(Frames):
             settings.ACCEL_BOARD.write(self.status.encode())
             settings.ADC_BOARD.write(self.status.encode())
 
+            try:
+                _thread.start_new_thread( rx_data , (settings.PRESSURE_BOARD, ))
+            except:
+                print ("Error: unable to start thread")
+
+
+
         self.winning_frame = customtkinter.CTkFrame(master = root)
         self.winning_frame.grid(row = 0, column = 0, sticky = "ns")
 
         self.msg = customtkinter.CTkLabel(master = self.winning_frame, text =  "Congratulations!",font = (self.font_text, 30), text_color = "white")
         self.msg.grid(row = 1, column = 0, pady=10, padx=150)
 
-        self.msg = customtkinter.CTkLabel(master = self.winning_frame, text =  "You can clam the prize!",font = (self.font_text, 30), text_color = "white")
+        self.msg = customtkinter.CTkLabel(master = self.winning_frame, text =  "You can claim the prize!",font = (self.font_text, 30), text_color = "white")
         self.msg.grid(row = 2, column = 0, pady=10, padx=150)
 
         self.seconds = settings.CURRENT_TIME%60
@@ -712,12 +722,19 @@ class Winning(Frames):
         self.timer = customtkinter.CTkLabel(master = self.winning_frame, text =  f'remaining.',font = (self.font_text, 30), text_color = "white")
         self.timer.grid(row = 6, column = 0, pady=10, padx=150)
 
+        self.timer = customtkinter.CTkLabel(master = self.winning_frame, text =  "Warning: Trap not disabled",font = (self.font_text, 20), text_color = "red")
+        self.timer.grid(row = 7, column = 0, pady=20, padx=150)
+
         self.end_button = customtkinter.CTkButton(master=self.winning_frame, width=20,height=80, text="Exit", font = (self.font_text,30),hover_color = "red", hover = True, command = self.exit, fg_color = "DeepSkyBlue4")
         self.end_button.grid(row=8, column=0, padx=20, pady=50, sticky="ew")
 
     def exit(self):
         self.root.destroy()
 
+    def fail(self):
+        self.winning_frame.destroy()
+        settings.LOGIN_SYSTEM = Lost(self.root)
+    
 class Lost(Frames):
     def __init__(self, root):
         
@@ -736,7 +753,7 @@ class Lost(Frames):
         self.winning_frame.grid(row = 0, column = 0, sticky = "ns")
 
         self.msg = customtkinter.CTkLabel(master = self.winning_frame, text =  "You were captured!",font = (self.font_text, 30), text_color = "red")
-        self.msg.grid(row = 1, column = 0, pady=10, padx=150)
+        self.msg.grid(row = 1, column = 0, pady=10, padx=200)
 
         self.msg = customtkinter.CTkLabel(master = self.winning_frame, text =  "You Lose!",font = (self.font_text, 30), text_color = "red")
         self.msg.grid(row = 2, column = 0, pady=10, padx=150)

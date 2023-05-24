@@ -54,5 +54,8 @@ while(1):
     
     if type(settings.LOGIN_SYSTEM) == Frames.Login_Frame:
         settings.LOGIN_SYSTEM.update_enc()
+
+    if (settings.PRES_FAIl == 1 and type(settings.LOGIN_SYSTEM) != Frames.Lost):
+        settings.LOGIN_SYSTEM = Frames.Lost(root)
     
     

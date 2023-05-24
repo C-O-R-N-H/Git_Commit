@@ -11,16 +11,16 @@ def init():
     FAILED_ATTEMPTS = 0
 
     global LOCK_1_COMPLETE
-    LOCK_1_COMPLETE = 0
+    LOCK_1_COMPLETE = 1
 
     global LOCK_2_COMPLETE
-    LOCK_2_COMPLETE = 0
+    LOCK_2_COMPLETE = 1
 
     global LOCK_3_COMPLETE
-    LOCK_3_COMPLETE = 0
+    LOCK_3_COMPLETE = 1
 
-    global ENC_COMPLETE
-    ENC_COMPLETE = 0
+    global PRES_FAIl
+    PRES_FAIl = 0
 
     global LOCK_1_HINT
     LOCK_1_HINT = 0
@@ -42,7 +42,7 @@ def init():
 
     #communication
     global ENABLE_SERIAL
-    ENABLE_SERIAL = 1
+    ENABLE_SERIAL = 0
 
     global SENTINAL
     SENTINAL = "AA55"
@@ -54,18 +54,21 @@ def init():
     global ACCEL_BOARD
     
     global ADC_BOARD
+
+    global PRESSURE_BOARD
     
     if ENABLE_SERIAL == 1:
         MASTER_SERIAL = serial.Serial('/dev/tty.usbmodem11403', 115200)
         TOUCH_BOARD = serial.Serial('/dev/tty.usbmodem11303', 115200)
         ACCEL_BOARD = serial.Serial('/dev/tty.usbmodem11203', 115200)
         ADC_BOARD = serial.Serial('/dev/tty.usbmodem11103', 115200)
-        #ADC_BOARD = serial.Serial()
+        PRESSURE_BOARD = serial.Serial('/dev/tty.usbmodem1203', 115200)
     else:
         MASTER_SERIAL = serial.Serial()
         TOUCH_BOARD = serial.Serial()
         ACCEL_BOARD = serial.Serial()
         ADC_BOARD = serial.Serial()
+        PRESSURE_BOARD = serial.Serial()
     
 
     #Notes
