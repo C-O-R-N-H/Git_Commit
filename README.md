@@ -48,7 +48,7 @@ To achieve this functionality, the code incorporates a button interrupt in `butt
 
 #### Testing Procedures
 
-### LOCK 3 &#x2013; Combination Lock
+### LOCK 3 &#x2013; Combination Lock 🔒
 
 #### Summary
 In this challenge, a secondary STM board &#x2013; the controller &#x2013; is used to control the movement (pan and tilt) of the PTU. The objective of the task is to move the PTU into three specific positions in order to 'unlock' the combination lock. 
@@ -85,7 +85,7 @@ The login username and password undergo constant encryption with a dynamic encry
 
 
 
-### Load Cell (ADC)
+### Load Cell (ADC) :bomb:
 ![WhatsApp Image 2023-05-24 at 6 24 19 PM](https://github.com/C-O-R-N-H/Git_Commit/assets/126120093/127497cd-c027-46ed-a12f-ecfa477d7658)
 
 ### GUI
