@@ -75,7 +75,7 @@ IsLastPos -- Yes --> ChallengeComplete((Challenge complete))
 ## Communication Protocols:
 
 ### Format
-All communication is routed through the GUI as a master controller, ultimately determining the state and status of each board. All communication follows the form; Sentinels -> Mode -> Data -> End of Sequence Character. Each set of communication occurs in a string to ease the reading of data from both the board and GUI.![image](https://github.com/C-O-R-N-H/Git_Commit/assets/127154993/335317e6-1bd9-404c-aa7b-7b360b68a52e)
+All communication is routed through the GUI as a master controller, ultimately determining the state and status of each board. All communication follows the form; Sentinels -> Mode -> Data -> End of Sequence Character. Each set of communication occurs in a string to ease the reading of data from both the board and GUI.
  <br />
 ### Modes
 Sentinels -> `AA55` <br />
@@ -84,13 +84,13 @@ Mode = `1` -> Change state <br />
 - Data -> 2 bytes (number for state) <br />
 
 Mode = `2` -> Challenge completed <br />
-- Data -> <br />
+- Data -> 1 byte (`1` for completed)<br />
 
 Mode = `3` -> Notes being played <br />
 - Data -> 6 bytes (1 for each note) <br />
 
 Mode = `4` -> Board to board TX <br />
-- Data -> <br /> 4 bytes 
+- Data -> 4 bytes (2 for pitch and yaw respectivly)<br /> 
 
 Mode = `5` -> LIDAR data <br />
 - Data -> 4 bytes for distance<br />
@@ -99,7 +99,7 @@ Mode = `6` -> LIDAR target <br />
 - Data -> 4 bytes for distance<br />
 
 Mode = `7` -> GYRO data <br />
-- Data -> <br />
+- Data -> 12 bytes (4 for each direction)<br />
 
 ### Integration
 
