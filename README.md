@@ -77,7 +77,7 @@ Second, we tested the 'position checking' mechanism of the system. That is, if a
 
 
 
-### Encryption (ADC)
+### Encryption (ADC) :lock_with_ink_pen:
 The login username and password undergo constant encryption with a dynamic encryption key that continually changes. This encryption process is visually represented by a PTU (Pan-Tilt Unit) using a periodic pitch and yaw function. The PTU's movement speed reflects the rate of change of the encryption key. The 2 trimpots act as dial locks, independently affecting the motion of each axis. As the trimpots approach their desired configuration, the PTU's motion gradually diminishes, reducing both the amplitude and rate of change of the encryption key. Eventually, when trimpots align with the required position, the PTU comes to a complete stop, and the encryption key becomes all zeros. This signifies that the encryption is disabled, allowing the user to enter the username and password displayed on the screen, thereby enabling a successful login.
 
 
