@@ -161,7 +161,7 @@ The load cell is bolted on to 2 wooden plates to create a pressure plate, and it
 #### ADC Testing
 For the initial testing each ADC channel was connected to the output of a trimpot. Dividing each ADC channel into 8 levels and mapping them to the LEDs allowed us to verify each PIN and channel. 
 
-Once this basic verification is done, multiple ADC values measured by the board can be output via serial communication using the sprintf function to be inspected. Along with this, the set_led function can allow uniquely lighting the LEDS to visually represent the values. Both were used to verify the functionality of the Encryption ADC module, which required 24 levels from 2 separate channels. 
+Once this basic verification is done, multiple ADC values measured by the board can be output via serial communication using the 'sprintf' function to be inspected. Along with this, the 'set_led' function can allow uniquely lighting the LEDS to visually represent the values. Both were used to verify the functionality of the Encryption ADC module, which required 24 levels from 2 separate channels. 
 
 For the Pressure Plate ADC module, the sensitivity of the plate had to be calibrated by adding or reducing the variable resistor value. The desired weight was put on the scale and the resistance was calibrated manually. When no weight is detected, one LED lights up, and when time has passed with the load missing from the plate, all the LEDs light up. This helps us verify if the board is detecting the removal of the load and not raising a flag when the load is replaced within the time limit. 
 
@@ -170,7 +170,7 @@ For troubleshooting and setting ADC circuits, a multimeter is highly recommended
 Common errors:
 
 -	ADC level is flickering between two consecutive levels: Noise and other inconsistencies may cause an ADC value on the edge of a defined level to flicker to the adjacent level. Implementing a rolling average will reduce such errors. Selecting the resolution of the levels also will impact this. Too many levels will increase the chances of the user setting the ADC near another level, and the narrow ranges will allow the noise to impact the levels more.
--	ADC values are disordered/wrong: Always check which ADC has called the ConvCpltCallBack function and has a new reading available. Understand the voltage input range of the ADC channel and transform your circuit’s output voltage accordingly. Use a multimeter to check wiring and perform general troubleshooting.
+-	ADC values are disordered/wrong: Always check which ADC has called the 'ConvCpltCallBack' function and has a new reading available. Understand the voltage input range of the ADC channel and transform your circuit’s output voltage accordingly. Use a multimeter to check wiring and perform general troubleshooting.
 
 
 
