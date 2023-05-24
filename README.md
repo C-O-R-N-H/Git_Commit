@@ -65,7 +65,7 @@ These tests and implementations ensure the proper functioning of the button inte
 ### LOCK 3 &#x2013; Combination Lock &#x00A0; :lock:
 
 #### Summary
-In this challenge, a secondary STM board &#x2013; the controller &#x2013; is used to control the movement (pan and tilt) of the PTU. The objective of the task is to move the PTU into three specific positions in order to 'unlock' the combination lock. 
+You've made it past Stewart's extensive security system. The only thing between you and not failing MTRX2700 is his safe. Use the secondary STM board &#x2013; the controller &#x2013; to move the PTU into the three correct positions to unlock the safe.
 
 #### High Level Flow Chart
 
