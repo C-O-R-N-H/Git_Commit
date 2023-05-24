@@ -75,7 +75,8 @@ IsLastPos -- Yes --> ChallengeComplete((Challenge complete))
 ## Communication Protocols:
 
 ### Format
-Sentinels -> Mode -> Data -> End of Sequence <br />
+All communication is routed through the GUI as a master controller, ultimately determining the state and status of each board. All communication follows the form; Sentinels -> Mode -> Data -> End of Sequence Character. Each set of communication occurs in a string to ease the reading of data from both the board and GUI.![image](https://github.com/C-O-R-N-H/Git_Commit/assets/127154993/335317e6-1bd9-404c-aa7b-7b360b68a52e)
+ <br />
 ### Modes
 Sentinels -> `AA55` <br />
 End of Sequence -> `!` <br />
