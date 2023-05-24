@@ -21,6 +21,7 @@ Roles:
 - [TSC](#tsc)
 - [Combination Lock](#combination-lock)
 - [GUI](#gui)
+- [Integration](#integration)
 
 ### ADC
 
