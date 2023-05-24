@@ -26,19 +26,30 @@ Roles:
 
 
 ### LOCK 1 &#x2013; LIDAR &#x00A0; :see_no_evil:
-Lock 1 emulates a laser tripwire security system by utilizing the lidar on the PTU (Pan-Tilt Unit). The system can be initiated by pressing the pushbutton on the STM32F3 discovery board, which functions as the "deactivation" mechanism. Once the button is activated, the user must position themselves within the designated distance of the lidar to "cut the wire." In order to successfully deactivate the system, the user must maintain button pressure for a minimum of 3 seconds while within the lidar's range. Upon meeting these conditions, an LED interface will appear, with the LEDs sequentially iterating through one by one. At this point, the challenge is considered complete.
+#### Summary
 
 #### High Level Flow Chart
 A high level overview of this challenge is illustrated below.
 
 
 ![Tron Major Flow Chart](https://github.com/C-O-R-N-H/Git_Commit/assets/126120093/ed56335c-d149-4d5c-8c2c-43f4ae2140a2)
+#### Usage
+Lock 1 emulates a laser tripwire security system by utilizing the lidar on the PTU (Pan-Tilt Unit). The system can be initiated by pressing the pushbutton on the STM32F3 discovery board, which functions as the "deactivation" mechanism. Once the button is activated, the user must position themselves within the designated distance of the lidar to "cut the wire." In order to successfully deactivate the system, the user must maintain button pressure for a minimum of 3 seconds while within the lidar's range. Upon meeting these conditions, an LED interface will appear, with the LEDs sequentially iterating through one by one. At this point, the challenge is considered complete.
+
+
 
 To achieve this functionality, the code incorporates a button interrupt in `button_interrupt.c` to detect when the button is pressed. Once the button press is detected, the interrupt is enabled. Following that, Timer 3 is initialized to track the duration of the button press. During this countdown, the code also utilizes the `check_condition()` function in `timer.c` to verify if the user is within the range of the lidar. Once all the conditions are met, an 'unlocked' flag is set to enable the LEDs to iterate through their sequence, indicating successful completion of the challenge.
+
+
 
 #### User Instructions
 
 #### Testing Procedures
+Testing was performed to ensure that the lidar distance being read is accurate and able to be used without any disturbances. As the PTU in use uses Pulse Width Modulation (PWM) for the lidar, arduino serial plotter was used to plot the lidar readings generated from the PWM. This generated a graph that was able to identify that the data being read was noisy and cannot be used without any adjustments. In order to combat this, a moving average was implemented with a window size of 100 as demonstrated in `filter.c`. The readings were then plotted again in arduino serial plotter and it was evident that the moving average had made an impact on the data as it was now able to be used.
+Note: PUTTY or any serial reading app can be used instead of arduino to monitor the noise. 
+
+
+
 
 
 
