@@ -42,7 +42,7 @@ To achieve this functionality, the code incorporates a button interrupt in `butt
 
 
 
-### LOCK 2 &#x2013; Touch Sensing Controller (TSC)
+### LOCK 2 &#x2013; Touch Sensing Controller (TSC) 🎹
 
 #### User Instructions
 
