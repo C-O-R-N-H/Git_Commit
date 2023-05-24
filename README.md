@@ -26,7 +26,7 @@ Roles:
 
 ### ADC
 
-### LOCK 1 &#x2013; LIDAR
+### LOCK 1 &#x2013; LIDAR 🙈
 Lock 1 emulates a laser tripwire security system by utilizing the lidar on the PTU (Pan-Tilt Unit). The system can be initiated by pressing the pushbutton on the STM32F3 discovery board, which functions as the "deactivation" mechanism. Once the button is activated, the user must position themselves within the designated distance of the lidar to "cut the wire." In order to successfully deactivate the system, the user must maintain button pressure for a minimum of 3 seconds while within the lidar's range. Upon meeting these conditions, an LED interface will appear, with the LEDs sequentially iterating through one by one. At this point, the challenge is considered complete.
 
 A high level overview of this challenge is illustrated below.
